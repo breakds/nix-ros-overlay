@@ -140,15 +140,6 @@ let
       sha256 = "0lpaskqxpklm05050wwvdqwhw30f2hpzss8sgyvczdpvvqzjg4vk";
     };
 
-    librealsense = rosSuper.librealsense.overrideAttrs ({
-      patches ? [], ...
-    }: {
-      patches = patches ++ [ (self.fetchpatch {
-        url = "https://github.com/IntelRealSense/librealsense/commit/86e434c86096b91a722f22bd039c2b6eeb8174ab.patch";
-        sha256 = "1kcvm32cx9zzd56k9yglnyxizmfgar3a6cybjdwpyf6ljrxjlpp5";
-      }) ];
-    });
-
     libuvc-camera = rosSuper.libuvc-camera.overrideAttrs ({
       postPatch ? "", ...
     }: {
